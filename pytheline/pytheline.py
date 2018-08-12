@@ -4,20 +4,21 @@ session = requests.Session()
 
 base_url = 'https://www.delijn.be/{}/'
 
-rise-api = {
+rise_api = {
     'core': 'rise-api-core'
     }
+
 
 class deLijn:
 
     def __init__(self):
 
-	def do_request(self, api, params=None):
-        if api in rise-api:
-			url = base_url.format(rise-api[api])
+    def do_request(self, api, params=None):
+        if api in rise_api:
+            url = base_url.format(rise_api[api])
             if params:
                 extra_url = '/'.join(params)
-				url += extra_url
+                url += extra_url
             try:
                 response = session.get(url)
                 try:
@@ -38,9 +39,9 @@ class deLijn:
 
     def convert_location(self, lat=None, long=None):
         if lat and long:
-			params = ['locations', 'convert', lat, long]
-			json_data = self.do_request('core', params)
-			return json_data
+            params = ['locations', 'convert', lat, long]
+            json_data = self.do_request('core', params)
+            return json_data
 
 # They seem to use x/y coordinates for all their geo-based information
 # so they have an API route that converts proper lat/long coordinates into their equivalent x/y coordinates.
