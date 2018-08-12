@@ -11,7 +11,7 @@ rise-api = {
 class deLijn:
 
     def __init__(self):
-	
+
 	def do_request(self, api, params=None):
         if api in rise-api:
 			url = base_url.format(rise-api[api])
