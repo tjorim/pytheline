@@ -7,14 +7,14 @@ def test_delijn_halte():
     response = delijn_instance.convert_location(51.1, 5.1)
     print(response)
 
-    response = delijn_instance.haltes_doorkomendelijnen(51.1, 5.1)
+    response = delijn_instance.haltes_doorkomendelijnen(406472)
     print(response)
 
-    response = delijn_instance.haltes_indebuurt(51.1, 5.1, 300)
+    response = delijn_instance.haltes_indebuurt(201220, 199130, 600)
     print(response)
 
-    response = delijn_instance.haltes_titel(51.1, 5.1)
+    response = delijn_instance.haltes_titel(406472)
     print(response)
 
-    response = delijn_instance.haltes_vertrekken(401474, 8)
+    response = delijn_instance.haltes_vertrekken(406472, 6)
     print(response)

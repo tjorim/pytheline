@@ -72,7 +72,7 @@ class deLijn:
 
         """
         if lat and long:
-            params = ['locations', 'convert', lat, long]
+            params = ['coordinaten', 'convert', str(lat), str(long)]
             json_data = self.do_request('core', params)
             return json_data
 
@@ -90,11 +90,11 @@ class deLijn:
         -------
         """
         if halte_id:
-            params = ['haltes', 'doorkomendelijnen', halte_id]
+            params = ['haltes', 'doorkomendelijnen', str(halte_id)]
             json_data = self.do_request('core', params)
             return json_data
 
-    def haltes_indebuurt(self, xCoordinaat=None, yCoordinaat=None, radius=None):
+    def haltes_indebuurt(self, xCoordinaat=None, yCoordinaat=None, radius=300):
         """
 
         ...
@@ -111,8 +111,8 @@ class deLijn:
         Returns
         -------
         """
-        if halte_id:
-            params = ['haltes', 'indebuurt', xCoordinaat, yCoordinaat, radius]
+        if xCoordinaat and yCoordinaat:
+            params = ['haltes', 'indebuurt', str(xCoordinaat), str(yCoordinaat), str(radius)]
             json_data = self.do_request('core', params)
             return json_data
 
@@ -130,7 +130,7 @@ class deLijn:
         -------
         """
         if halte_id:
-            params = ['haltes', 'titel', halte_id]
+            params = ['haltes', 'titel', str(halte_id)]
             json_data = self.do_request('core', params)
             return json_data
 
@@ -150,6 +150,6 @@ class deLijn:
         -------
         """
         if halte_id:
-            params = ['haltes', 'vertrekken', halte_id, num_results]
+            params = ['haltes', 'vertrekken', str(halte_id), str(num_results)]
             json_data = self.do_request('core', params)
             return json_data
